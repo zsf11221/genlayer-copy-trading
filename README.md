@@ -17,7 +17,7 @@ Find a trader whose track record survived consensus audit, follow them, and copy
 - Contract: `0x7a611A569a0668E992c438Bc0384657A493Ec3c8`
 - Explorer: https://explorer-studio.genlayer.com/address/0x7a611A569a0668E992c438Bc0384657A493Ec3c8
 - Deploy transaction: `0xdc84a739a564cfefef68ff6849d0a0e09f2777cc244944307ff63047f5d29862`
-- Source: [`contracts/copy_arena.py`](contracts/copy_arena.py) (SHA256 `52c2b125c39dc4abc2d5c8493de0523593bd84394a24da71af38140f64607678`)
+- Source: [`contracts/copy_arena.py`](contracts/copy_arena.py) (SHA256 `52c2b125c39dc4abc2d5c8493de0523593bd84394a24da71af38140f64607678`, commit `b97cd81`)
 - Runner: `py-genlayer:1jb45aa8ynh2a9c9xn3b7qqh8sm5q93hwfp7jqmwsfhh8jpz09h6`
 
 ## Verified on-chain

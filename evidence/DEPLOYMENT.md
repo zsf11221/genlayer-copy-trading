@@ -7,6 +7,7 @@
 - Deploy transaction: `0xdc84a739a564cfefef68ff6849d0a0e09f2777cc244944307ff63047f5d29862`
 - Deployed source: `contracts/copy_arena.py`
 - Source SHA256: `52c2b125c39dc4abc2d5c8493de0523593bd84394a24da71af38140f64607678`
+- Source commit: `b97cd817e3435122701c6511ab35f3d10104c1a7` (the deployed file is byte-identical to the file in this repository — see the SHA256 above)
 - Runner: `py-genlayer:1jb45aa8ynh2a9c9xn3b7qqh8sm5q93hwfp7jqmwsfhh8jpz09h6` (pinned; the network rejects the `latest`/`test` aliases)
 - Live actors (ephemeral script accounts, addresses only): trader 1 `0xa55C0789a06A5Cc9AeBc2158F0F79EA01a8c697b`, trader 2 `0xB0AA469110EA0C6FbDF6d811569B4256F0b4c7dd`, follower `0xaDcdc54bB156dEa06549EADa9405854567b8bA7B`
 
