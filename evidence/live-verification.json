@@ -1,0 +1,292 @@
+{
+  "network": "Stable Studionet",
+  "chain_id": 61999,
+  "rpc": "https://studio.genlayer.com/api",
+  "contract_address": "0x7a611A569a0668E992c438Bc0384657A493Ec3c8",
+  "deploy_tx": "0xdc84a739a564cfefef68ff6849d0a0e09f2777cc244944307ff63047f5d29862",
+  "deploy_source_sha256": "52c2b125c39dc4abc2d5c8493de0523593bd84394a24da71af38140f64607678",
+  "accounts": {
+    "trader1": "0xa55C0789a06A5Cc9AeBc2158F0F79EA01a8c697b",
+    "trader2": "0xB0AA469110EA0C6FbDF6d811569B4256F0b4c7dd",
+    "follower": "0xaDcdc54bB156dEa06549EADa9405854567b8bA7B"
+  },
+  "steps": [
+    {
+      "step": "deploy",
+      "method": "__init__",
+      "args": [],
+      "tx_hash": "0xdc84a739a564cfefef68ff6849d0a0e09f2777cc244944307ff63047f5d29862",
+      "hash": "0xdc84a739a564cfefef68ff6849d0a0e09f2777cc244944307ff63047f5d29862",
+      "status": "FINALIZED",
+      "execution_result": "SUCCESS",
+      "contract_address": "0x7a611A569a0668E992c438Bc0384657A493Ec3c8"
+    },
+    {
+      "step": "trader1 claim_test_gen",
+      "method": "claim_test_gen",
+      "args": [],
+      "tx_hash": "0x02b35349aca04be3f6f241a3109f7c7fd8b0bfcbd7578706d4df0f20fc9aef06",
+      "status": "FINALIZED",
+      "execution_result": "SUCCESS",
+      "hash": "0x02b35349aca04be3f6f241a3109f7c7fd8b0bfcbd7578706d4df0f20fc9aef06",
+      "contract_address": null
+    },
+    {
+      "step": "trader2 claim_test_gen",
+      "method": "claim_test_gen",
+      "args": [],
+      "tx_hash": "0x79ee63d8eb592d1d6dd718428fc4ddee74e072a8390b5fc5084288c627823486",
+      "status": "FINALIZED",
+      "execution_result": "SUCCESS",
+      "hash": "0x79ee63d8eb592d1d6dd718428fc4ddee74e072a8390b5fc5084288c627823486",
+      "contract_address": null
+    },
+    {
+      "step": "follower claim_test_gen",
+      "method": "claim_test_gen",
+      "args": [],
+      "tx_hash": "0xb5fd00e9d2671386c02504bfc437bbe68e3060247e66ee1d04bb9fb372cd2450",
+      "status": "FINALIZED",
+      "execution_result": "SUCCESS",
+      "hash": "0xb5fd00e9d2671386c02504bfc437bbe68e3060247e66ee1d04bb9fb372cd2450",
+      "contract_address": null
+    },
+    {
+      "step": "trader1 register_trader 50 GEN",
+      "method": "register_trader",
+      "args": [
+        "Ava Chen",
+        "50000000"
+      ],
+      "tx_hash": "0xa6c85dc39ea24f9962b2556fdd78f5a161d296ff4d6d3cbb8ee14b1fb6e2a40c",
+      "status": "FINALIZED",
+      "execution_result": "SUCCESS",
+      "hash": "0xa6c85dc39ea24f9962b2556fdd78f5a161d296ff4d6d3cbb8ee14b1fb6e2a40c",
+      "contract_address": null
+    },
+    {
+      "step": "trader2 register_trader 50 GEN",
+      "method": "register_trader",
+      "args": [
+        "Ben Okafor",
+        "50000000"
+      ],
+      "tx_hash": "0x214f03ba45958f2592336a330c2a1bf2376a08dda1b087507dd01f7cb02e2e29",
+      "status": "FINALIZED",
+      "execution_result": "SUCCESS",
+      "hash": "0x214f03ba45958f2592336a330c2a1bf2376a08dda1b087507dd01f7cb02e2e29",
+      "contract_address": null
+    },
+    {
+      "step": "trader1 submit_track_record",
+      "method": "submit_track_record",
+      "args": [
+        "Track record for Ava Chen, spot trader, 2026-09-01 to 2026-11-01. Total trades: 10. Wins: 7. Losses: 3. win_rate_bp: 700"
+      ],
+      "tx_hash": "0x3fcef73928c3bf89bce2c443bb7369a240a6c8bdd0001c81ddb70856cb4e1683",
+      "status": "FINALIZED",
+      "execution_result": "SUCCESS",
+      "hash": "0x3fcef73928c3bf89bce2c443bb7369a240a6c8bdd0001c81ddb70856cb4e1683",
+      "contract_address": null
+    },
+    {
+      "step": "trader1 audit_record",
+      "method": "audit_record",
+      "args": [
+        "1"
+      ],
+      "tx_hash": "0x6ef1b4ecebbef0eda3f68d6e84fdc80c50519aa25e1a2754291e8c962f5e7677",
+      "status": "FINALIZED",
+      "execution_result": "SUCCESS",
+      "hash": "0x6ef1b4ecebbef0eda3f68d6e84fdc80c50519aa25e1a2754291e8c962f5e7677",
+      "contract_address": null
+    },
+    {
+      "step": "follower follow_trader 100 GEN",
+      "method": "follow_trader",
+      "args": [
+        "0xa55C0789a06A5Cc9AeBc2158F0F79EA01a8c697b",
+        "100000000"
+      ],
+      "tx_hash": "0x3dfd843ae17dc6ca52511a4ce82f669284b992d20f1f336b800805e053d99ad6",
+      "status": "FINALIZED",
+      "execution_result": "SUCCESS",
+      "hash": "0x3dfd843ae17dc6ca52511a4ce82f669284b992d20f1f336b800805e053d99ad6",
+      "contract_address": null
+    },
+    {
+      "step": "follower copy_position +50 GEN",
+      "method": "copy_position",
+      "args": [
+        "1",
+        "50000000"
+      ],
+      "tx_hash": "0xfcdca67ca6f3eb3b1409267b5789535564dd679459921fe5fd37c165de71ac6a",
+      "status": "FINALIZED",
+      "execution_result": "SUCCESS",
+      "hash": "0xfcdca67ca6f3eb3b1409267b5789535564dd679459921fe5fd37c165de71ac6a",
+      "contract_address": null
+    },
+    {
+      "step": "follower settle_copy +30 GEN pnl",
+      "method": "settle_copy",
+      "args": [
+        "1",
+        "30000000"
+      ],
+      "tx_hash": "0xeaefc4aaf9ba664b1cd4ad908b99a3761557e4e17a3e696004bd4aa32208e0fb",
+      "status": "FINALIZED",
+      "execution_result": "SUCCESS",
+      "hash": "0xeaefc4aaf9ba664b1cd4ad908b99a3761557e4e17a3e696004bd4aa32208e0fb",
+      "contract_address": null
+    },
+    {
+      "step": "trader2 submit_track_record (thin)",
+      "method": "submit_track_record",
+      "args": [
+        "I am a great trader, trust me, 100x returns guaranteed."
+      ],
+      "tx_hash": "0xcc48f8c8f149b93ce1a435e041775b66af1b56936f53781bedf723f594d64082",
+      "status": "FINALIZED",
+      "execution_result": "SUCCESS",
+      "hash": "0xcc48f8c8f149b93ce1a435e041775b66af1b56936f53781bedf723f594d64082",
+      "contract_address": null
+    },
+    {
+      "step": "trader2 audit_record",
+      "method": "audit_record",
+      "args": [
+        "2"
+      ],
+      "tx_hash": "0xc354ed78bcdb4142b67dc584e431ef1e07933679591aa6e5ded7c8ebe5ed50e8",
+      "status": "FINALIZED",
+      "execution_result": "SUCCESS",
+      "hash": "0xc354ed78bcdb4142b67dc584e431ef1e07933679591aa6e5ded7c8ebe5ed50e8",
+      "contract_address": null
+    },
+    {
+      "step": "trader2 appeal",
+      "method": "appeal",
+      "args": [
+        "2",
+        "Corrected full track record for Ben Okafor, spot trader, 2026-08-01 to 2026-10-31. The first submission was an incomplet"
+      ],
+      "tx_hash": "0x25dd27138ad114e3d31aa2d84623a688d1505e3048a2d2185e05fce35b3ac3ab",
+      "status": "FINALIZED",
+      "execution_result": "SUCCESS",
+      "hash": "0x25dd27138ad114e3d31aa2d84623a688d1505e3048a2d2185e05fce35b3ac3ab",
+      "contract_address": null
+    },
+    {
+      "step": "trader2 adjudicate_appeal",
+      "method": "adjudicate_appeal",
+      "args": [
+        "2"
+      ],
+      "tx_hash": "0x8ffe60c8c9e5e134a40a40a7d155e37f43e4256d7579230c10f35ed8cf1eda04",
+      "status": "FINALIZED",
+      "execution_result": "SUCCESS",
+      "hash": "0x8ffe60c8c9e5e134a40a40a7d155e37f43e4256d7579230c10f35ed8cf1eda04",
+      "contract_address": null
+    },
+    {
+      "step": "follower dispute_fake record1",
+      "method": "dispute_fake",
+      "args": [
+        "1",
+        "The win rate in this record looks too smooth; requesting a re-audit of the trade lines."
+      ],
+      "tx_hash": "0x83a97721f5328c6e19d7964c9865815f0d1f7d5b97162ee8937cddf7487dc154",
+      "status": "FINALIZED",
+      "execution_result": "SUCCESS",
+      "hash": "0x83a97721f5328c6e19d7964c9865815f0d1f7d5b97162ee8937cddf7487dc154",
+      "contract_address": null
+    },
+    {
+      "step": "follower audit_dispute record1",
+      "method": "audit_dispute",
+      "args": [
+        "1"
+      ],
+      "tx_hash": "0x5eb7ec54ab647a8215eb4eac0d344da3094b561d3261777741d0037f577a2a03",
+      "status": "FINALIZED",
+      "execution_result": "SUCCESS",
+      "hash": "0x5eb7ec54ab647a8215eb4eac0d344da3094b561d3261777741d0037f577a2a03",
+      "contract_address": null
+    }
+  ],
+  "final_readback": {
+    "traders": {
+      "trader1": {
+        "address": "0xa55C0789a06A5Cc9AeBc2158F0F79EA01a8c697b",
+        "badge": "VERIFIED",
+        "copy_pnl": "30000000",
+        "followers": "1",
+        "name": "Ava Chen",
+        "reputation": "1120",
+        "stake": "50000000"
+      },
+      "trader2": {
+        "address": "0xB0AA469110EA0C6FbDF6d811569B4256F0b4c7dd",
+        "badge": "VERIFIED",
+        "copy_pnl": "0",
+        "followers": "0",
+        "name": "Ben Okafor",
+        "reputation": "950",
+        "stake": "40000000"
+      }
+    },
+    "records": {
+      "1": {
+        "appeal_count": "0",
+        "appeal_evidence": "",
+        "evidence": "Track record for Ava Chen, spot trader, 2026-09-01 to 2026-11-01. Total trades: 10. Wins: 7. Losses: 3. win_rate_bp: 7000. total_pnl_microgen: 15000000. Representative trade lines (every trade, pnl in microGEN): 1. BTC long +4000000; 2. ETH long +3000000; 3. SOL long -1000000; 4. BTC short +2500000; 5. ETH long +1500000; 6. ARB long -500000; 7. BTC long +3000000; 8. SOL short +2000000; 9. ETH short -1000000; 10. BTC long +1500000. Source: exported trade history from the exchange account statements for September to October 2026, cross-checked against the on-chain deposit and withdrawal log for the same period.",
+        "history": "SUBMITTED\nAUDITED|VERIFIED|STRONG_EVIDENCE\nDISPUTED|The win rate in this record looks too smooth; requesting a re-audit of the trade lines.\nDISPUTE_AUDITED|VERIFIED|STRONG_EVIDENCE",
+        "id": "1",
+        "status": "VERIFIED",
+        "trader": "0xa55C0789a06A5Cc9AeBc2158F0F79EA01a8c697b",
+        "verdict": "VERIFIED|STRONG_EVIDENCE",
+        "verdict_reason": "STRONG_EVIDENCE"
+      },
+      "2": {
+        "appeal_count": "1",
+        "appeal_evidence": "Corrected full track record for Ben Okafor, spot trader, 2026-08-01 to 2026-10-31. The first submission was an incomplete summary; this appeal supplies the complete trade log. Total trades: 8. Wins: 6. Losses: 2. win_rate_bp: 7500. total_pnl_microgen: 7000000. Trade lines (every trade, pnl in microGEN): 1. BTC long +2000000; 2. ETH long +1000000; 3. SOL long -500000; 4. BTC short +1500000; 5. ETH long +500000; 6. ARB long -500000; 7. BTC long +2000000; 8. SOL short +1000000. Source: exported trade history from the exchange account statements for August to October 2026, cross-checked against the on-chain deposit and withdrawal log for the same period.",
+        "evidence": "I am a great trader, trust me, 100x returns guaranteed.",
+        "history": "SUBMITTED\nAUDITED|REJECTED|THIN_EVIDENCE\nAPPEAL_SUBMITTED\nAPPEAL_ADJUDICATED|VERIFIED|STRONG_EVIDENCE",
+        "id": "2",
+        "status": "VERIFIED",
+        "trader": "0xB0AA469110EA0C6FbDF6d811569B4256F0b4c7dd",
+        "verdict": "VERIFIED|STRONG_EVIDENCE",
+        "verdict_reason": "STRONG_EVIDENCE"
+      }
+    },
+    "copies": {
+      "1": {
+        "follower": "0xaDcdc54bB156dEa06549EADa9405854567b8bA7B",
+        "follower_return": "174000000",
+        "id": "1",
+        "pnl": "30000000",
+        "principal": "150000000",
+        "status": "SETTLED",
+        "trader": "0xa55C0789a06A5Cc9AeBc2158F0F79EA01a8c697b",
+        "trader_share": "6000000"
+      }
+    },
+    "platform_pool_microgen": "10000000",
+    "balances": {
+      "trader1": "956000000",
+      "trader2": "950000000",
+      "follower": "1024000000"
+    },
+    "demos": {
+      "verified_badge": true,
+      "copy_settled": true,
+      "rejected_slashed": true,
+      "appeal_adjudicated": true,
+      "dispute_adjudicated": true
+    }
+  },
+  "notes": [
+    "demos demonstrated: {'verified_badge': True, 'copy_settled': True, 'rejected_slashed': True, 'appeal_adjudicated': True, 'dispute_adjudicated': True}"
+  ]
+}

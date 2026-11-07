@@ -1,0 +1,1 @@
+{"dependencies":{"genlayer-js":"1.1.8"},"devDependencies":{"vite":"^6.0.0"},"name":"genlayer-copy-trading-frontend","private":true,"scripts":{"build":"vite build","check:i18n":"node scripts/check-i18n.mjs","dev":"vite","preview":"vite preview"},"type":"module","version":"1.0.0"}

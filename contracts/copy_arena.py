@@ -54,7 +54,7 @@ Consensus (audit_record / adjudicate_appeal / audit_dispute):
   DECISION token only (VERIFIED vs REJECTED): that token is what
   changes state. The reason code is leader-provided metadata and may
   legitimately differ between models; a code difference alone must
-  not veto an agreed decision (B4 lesson).
+  not veto an agreed decision.
 - Any failure (empty evidence, unparsable verdict, consensus
   disagreement) raises before any write, so the record stays in its
   pre-audit status (PENDING / APPEALED / DISPUTED) and can be retried.

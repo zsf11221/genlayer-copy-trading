@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="description" content="Copy Arena — consensus-audited copy trading on GenLayer Stable Studionet. Follow people, not charts." />
+  <title>Copy Arena — GenLayer Studionet</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600..900;1,9..144,600..900&family=JetBrains+Mono:wght@400;500;600&family=Public+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./src/styles.css" />
+</head>
+<body>
+  <a class="skip" href="#hall" data-i18n="a11y.skip">Skip to the hall</a>
+
+  <header class="top">
+    <div class="top-in">
+      <a class="wordmark" href="#top">Copy <em>Arena</em></a>
+      <p class="top-tag" data-i18n="brand.tag">Copy trading, judged by consensus</p>
+      <nav class="top-nav" aria-label="Sections">
+        <a href="#hall" data-i18n="nav.hall">Hall</a>
+        <a href="#room" data-i18n="nav.room">Record room</a>
+        <a href="#desk" data-i18n="nav.desk">Desk</a>
+        <a href="#copies" data-i18n="nav.copies">Copies</a>
+        <a href="#activity" data-i18n="nav.activity">Activity</a>
+      </nav>
+      <div class="top-actions">
+        <div class="lang" role="group" aria-label="Language">
+          <button id="lang-en" type="button" lang="en">EN</button>
+          <button id="lang-zh" type="button" lang="zh" aria-pressed="true">中文</button>
+        </div>
+        <button id="wallet-btn" class="btn btn-paper" type="button" data-i18n="wallet.connect">Connect wallet</button>
+      </div>
+    </div>
+    <p id="signer-line" class="signer-line" aria-live="polite"></p>
+  </header>
+
+  <main id="top">
+    <!-- ============ HERO ============ -->
+    <section class="hero" aria-labelledby="hero-title">
+      <p class="hero-kicker"><span class="live-dot" aria-hidden="true"></span><span data-i18n="hero.kicker">live on Stable Studionet</span></p>
+      <h1 id="hero-title"><span data-i18n="hero.title">Follow people, not charts.</span></h1>
+      <p class="hero-sub" data-i18n="hero.sub">Traders stake their own GEN, publish a track record, and let GenLayer validators judge whether the record is real. Only then can anyone copy them — and the split is settled on-chain.</p>
+      <div class="hero-ticker" aria-live="polite">
+        <div class="tick-pool">
+          <span class="tick-label" data-i18n="hero.pool">Platform pool</span>
+          <span class="tick-value brass"><span id="tick-pool">—</span><small>GEN</small></span>
+        </div>
+        <div>
+          <span class="tick-label" data-i18n="hero.traders">Traders</span>
+          <span class="tick-value" id="tick-traders">—</span>
+        </div>
+        <div>
+          <span class="tick-label" data-i18n="hero.copyPnl">Copied PnL</span>
+          <span class="tick-value" id="tick-copypnl">—</span>
+        </div>
+      </div>
+      <p id="not-deployed" class="notice" hidden data-i18n="hero.notDeployed">The CopyArena contract is not deployed yet. You can still look around; nothing below reads from a chain yet.</p>
+    </section>
+
+    <!-- ============ TX PANEL (shared, E6) ============ -->
+    <div class="tx-panel" aria-live="polite">
+      <ol id="tx-steps" class="tx-steps" hidden>
+        <li data-step="submit"><span class="dot"></span><span data-i18n="steps.submit">Submitted</span></li>
+        <li data-step="consensus"><span class="dot"></span><span data-i18n="steps.consensus">Validators judging</span></li>
+        <li data-step="final"><span class="dot"></span><span data-i18n="steps.final">Finalized</span></li>
+      </ol>
+      <p id="tx-status" class="tx-status"></p>
+      <div class="balance-row">
+        <span id="balance-line">—</span>
+        <button id="claim-btn" class="btn btn-ghost" type="button" data-i18n="desk.claimBtn">Claim test GEN</button>
+      </div>
+    </div>
+
+    <!-- ============ HALL (E7) ============ -->
+    <section id="hall" aria-labelledby="hall-title">
+      <div class="section-head">
+        <h2 id="hall-title" class="section-title" data-i18n="hall.title">The hall</h2>
+        <button id="refresh-btn" class="btn btn-ghost" type="button" data-i18n="hall.refresh">Refresh from chain</button>
+      </div>
+      <p class="section-sub" data-i18n="hall.sub">Every trader is a person with a stake, a record and a verdict. Tap a card to open their record room.</p>
+      <p class="source-line"><span data-i18n="hall.source">Source: Stable Studionet contract</span> <a id="contract-link" href="#" target="_blank" rel="noopener">—</a> · <span id="updated-line">—</span></p>
+      <ul id="wall" class="wall wall-skeleton" aria-live="polite">
+        <li><div class="trader-card"><div class="skel" style="height:3rem;width:3rem;border-radius:50%"></div><div class="skel" style="height:1.6rem;width:60%"></div><div class="skel" style="height:2.2rem;width:80%"></div><div class="skel" style="height:1rem;width:90%"></div></div></li>
+        <li><div class="trader-card"><div class="skel" style="height:3rem;width:3rem;border-radius:50%"></div><div class="skel" style="height:1.6rem;width:55%"></div><div class="skel" style="height:2.2rem;width:70%"></div><div class="skel" style="height:1rem;width:85%"></div></div></li>
+        <li><div class="trader-card"><div class="skel" style="height:3rem;width:3rem;border-radius:50%"></div><div class="skel" style="height:1.6rem;width:65%"></div><div class="skel" style="height:2.2rem;width:75%"></div><div class="skel" style="height:1rem;width:80%"></div></div></li>
+      </ul>
+      <p id="wall-empty" class="wall-empty" hidden data-i18n="hall.empty">No traders yet. Register the first trader at the desk below.</p>
+    </section>
+
+    <!-- ============ RECORD ROOM ============ -->
+    <section id="room" aria-labelledby="room-title">
+      <h2 id="room-title" class="section-title" data-i18n="room.title">Record room</h2>
+      <p class="section-sub" data-i18n="room.selectHint">Pick a trader in the hall above.</p>
+      <article id="room-card" class="room" aria-live="polite">
+        <p id="room-empty" data-i18n="room.empty">Pick a trader in the hall to open their record room.</p>
+        <div id="room-body" hidden>
+          <div class="room-head">
+            <div class="avatar" id="room-avatar">?</div>
+            <h3 id="room-name">—</h3>
+            <span id="room-badge" class="badge badge-none">—</span>
+            <span id="room-verdict" class="verdict-word">—</span>
+          </div>
+          <dl class="room-grid">
+            <div><dt data-i18n="room.trader">Trader</dt><dd id="room-address" class="mono">—</dd></div>
+            <div><dt data-i18n="room.verdict">Verdict</dt><dd id="room-verdict-text">—</dd></div>
+            <div><dt data-i18n="room.reason">Reason</dt><dd id="room-reason">—</dd></div>
+            <div><dt data-i18n="room.appeals">Appeals</dt><dd id="room-appeals">—</dd></div>
+            <div><dt data-i18n="room.evidence">Track-record evidence</dt><dd id="room-evidence">—</dd></div>
+            <div><dt data-i18n="room.history">Verdict history</dt><dd><ul id="room-history" class="room-timeline"></ul></dd></div>
+          </dl>
+          <div class="room-actions">
+            <button id="audit-btn" class="btn btn-brass" type="button" data-i18n="room.auditBtn">Run consensus audit</button>
+            <button id="adjudicate-btn" class="btn btn-paper" type="button" data-i18n="room.adjudicateBtn">Adjudicate appeal</button>
+            <button id="dispute-audit-btn" class="btn btn-danger" type="button" data-i18n="room.disputeAuditBtn">Audit this dispute</button>
+          </div>
+          <div class="room-forms">
+            <form id="appeal-form" autocomplete="off">
+              <label class="field"><span class="field-label" data-i18n="room.appealLabel">Appeal — new evidence (English, max 2000 characters)</span>
+                <textarea name="evidence" required maxlength="2000" rows="3"></textarea></label>
+              <button class="btn btn-brass" type="submit" data-i18n="room.appealBtn">Submit appeal on-chain</button>
+              <p class="form-error" role="alert" hidden></p>
+            </form>
+            <form id="dispute-form" autocomplete="off">
+              <label class="field"><span class="field-label" data-i18n="room.disputeLabel">Report a fake record — reason (English, max 500 characters)</span>
+                <textarea name="reason" required maxlength="500" rows="3"></textarea></label>
+              <button class="btn btn-danger" type="submit" data-i18n="room.disputeBtn">Report fake record</button>
+              <p class="form-error" role="alert" hidden></p>
+            </form>
+            <form id="witness-form" autocomplete="off">
+              <label class="field"><span class="field-label" data-i18n="room.witnessLabel">Add a witness note (English, max 500 characters)</span>
+                <textarea name="note" required maxlength="500" rows="3"></textarea></label>
+              <button class="btn btn-ghost" type="submit" data-i18n="room.witnessBtn">Submit witness note</button>
+              <p class="form-error" role="alert" hidden></p>
+            </form>
+          </div>
+          <p id="room-error" class="form-error" role="alert" hidden></p>
+        </div>
+      </article>
+    </section>
+
+    <!-- ============ DESK ============ -->
+    <section id="desk" aria-labelledby="desk-title">
+      <h2 id="desk-title" class="section-title" data-i18n="desk.title">The desk</h2>
+      <p class="section-sub" data-i18n="desk.sub">Everything you submit goes on-chain in English. Amounts are in GEN; the contract stores microGEN (1 GEN = 1,000,000 microGEN).</p>
+      <div class="desk-grid">
+        <article class="panel">
+          <h3 data-i18n="desk.registerTitle">Register as a trader</h3>
+          <form id="register-form" autocomplete="off">
+            <label class="field"><span class="field-label" data-i18n="desk.registerName">Trader name (English)</span>
+              <input name="name" required maxlength="80" placeholder="Mara" /></label>
+            <label class="field"><span class="field-label" data-i18n="desk.registerStake">Stake (GEN)</span>
+              <input name="stake" class="mono-input" inputmode="decimal" required placeholder="10" /></label>
+            <button class="btn btn-brass btn-big" type="submit" data-i18n="desk.registerBtn">Register on-chain</button>
+            <p class="form-error" role="alert" hidden></p>
+          </form>
+        </article>
+
+        <article class="panel">
+          <h3 data-i18n="desk.recordTitle">Submit a track record</h3>
+          <form id="record-form" autocomplete="off">
+            <label class="field"><span class="field-label" data-i18n="desk.recordTotal">Total trades</span>
+              <input name="total" class="mono-input" inputmode="numeric" required placeholder="120" /></label>
+            <label class="field"><span class="field-label" data-i18n="desk.recordWins">Winning trades</span>
+              <input name="wins" class="mono-input" inputmode="numeric" required placeholder="78" /></label>
+            <p id="win-rate-line" class="rate-line" aria-live="polite"></p>
+            <label class="field"><span class="field-label" data-i18n="desk.recordPnl">Total PnL (GEN, may be negative)</span>
+              <input name="pnl" class="mono-input" inputmode="decimal" required placeholder="48.5" /></label>
+            <label class="field"><span class="field-label" data-i18n="desk.recordDetail">Representative trade — what happened, entry and exit (English)</span>
+              <textarea name="detail" required maxlength="500" rows="2" placeholder="Bought GEN at 1.02, sold at 1.31 after the audit passed…"></textarea></label>
+            <label class="field"><span class="field-label" data-i18n="desk.recordSource">Where this record comes from (English)</span>
+              <input name="source" required maxlength="200" placeholder="My own trading journal, Jan–Nov 2026" /></label>
+            <p class="field-label" style="margin-top:1rem" data-i18n="desk.recordPreview">Evidence text that will be submitted on-chain:</p>
+            <p id="evidence-preview" class="evidence-preview" aria-live="polite">—</p>
+            <button class="btn btn-brass btn-big" type="submit" data-i18n="desk.recordBtn">Submit record on-chain</button>
+            <p class="form-error" role="alert" hidden></p>
+          </form>
+        </article>
+
+        <article class="panel">
+          <h3 data-i18n="desk.followTitle">Follow a trader</h3>
+          <form id="follow-form" autocomplete="off">
+            <label class="field"><span class="field-label" data-i18n="desk.followTrader">Trader</span>
+              <select id="follow-trader" name="trader" required></select></label>
+            <label class="field"><span class="field-label" data-i18n="desk.followPrincipal">Principal (GEN)</span>
+              <input name="principal" class="mono-input" inputmode="decimal" required placeholder="20" /></label>
+            <button class="btn btn-brass btn-big" type="submit" data-i18n="desk.followBtn">Follow on-chain</button>
+            <p class="form-error" role="alert" hidden></p>
+          </form>
+        </article>
+
+        <article class="panel">
+          <h3 data-i18n="desk.copyTitle">Copy a position</h3>
+          <form id="copy-form" autocomplete="off">
+            <label class="field"><span class="field-label" data-i18n="desk.copyId">Copy</span>
+              <select id="copy-copy" name="copy" required></select></label>
+            <label class="field"><span class="field-label" data-i18n="desk.copyAmount">Amount (GEN)</span>
+              <input name="amount" class="mono-input" inputmode="decimal" required placeholder="5" /></label>
+            <button class="btn btn-brass btn-big" type="submit" data-i18n="desk.copyBtn">Copy position on-chain</button>
+            <p class="form-error" role="alert" hidden></p>
+          </form>
+        </article>
+
+        <article class="panel">
+          <h3 data-i18n="desk.settleTitle">Settle a copy</h3>
+          <form id="settle-form" autocomplete="off">
+            <label class="field"><span class="field-label" data-i18n="desk.settleId">Copy</span>
+              <select id="settle-copy" name="copy" required></select></label>
+            <label class="field"><span class="field-label" data-i18n="desk.settlePnl">Realized PnL (GEN, may be negative)</span>
+              <input name="pnl" class="mono-input" inputmode="decimal" required placeholder="3.25" /></label>
+            <button class="btn btn-brass btn-big" type="submit" data-i18n="desk.settleBtn">Settle and split on-chain</button>
+            <p class="form-error" role="alert" hidden></p>
+          </form>
+        </article>
+
+        <article class="panel">
+          <h3 data-i18n="desk.claim">Test GEN</h3>
+          <p class="hint" data-i18n="desk.claimHint">Credits test GEN to the connected account so you can stake and copy. The exact amount is set by the contract.</p>
+          <p class="hint"><span id="balance-line-2">—</span></p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ COPIES LEDGER ============ -->
+    <section id="copies" aria-labelledby="copies-title">
+      <div class="section-head">
+        <h2 id="copies-title" class="section-title" data-i18n="copies.title">Copies ledger</h2>
+      </div>
+      <p class="section-sub" data-i18n="copies.sub">Every follow on-chain: who copied whom, with how much, and how the split settled.</p>
+      <div class="filter-row" role="group" aria-label="Filter copies">
+        <button id="filter-all" class="btn btn-ghost" type="button" aria-pressed="true" data-i18n="copies.all">Show all copies</button>
+        <button id="filter-mine" class="btn btn-ghost" type="button" aria-pressed="false" data-i18n="copies.mine">Show only my copies</button>
+      </div>
+      <div class="table-scroll">
+        <table class="ledger">
+          <thead>
+            <tr>
+              <th data-i18n="copies.id">Copy</th>
+              <th data-i18n="copies.trader">Trader</th>
+              <th data-i18n="copies.follower">Follower</th>
+              <th data-i18n="copies.principal">Principal</th>
+              <th data-i18n="copies.pnl">PnL</th>
+              <th data-i18n="copies.status">Status</th>
+              <th data-i18n="copies.traderShare">Trader share</th>
+              <th data-i18n="copies.followerReturn">Follower return</th>
+            </tr>
+          </thead>
+          <tbody id="copies-body">
+            <tr><td colspan="8" class="empty" data-i18n="copies.loading">Reading copies from the chain…</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ============ ACTIVITY ============ -->
+    <section id="activity" aria-labelledby="activity-title">
+      <h2 id="activity-title" class="section-title" data-i18n="activity.title">Activity</h2>
+      <p class="section-sub" data-i18n="activity.sub">Every transaction from this session, with its explorer link and final state.</p>
+      <ul id="tx-feed" class="tx-feed">
+        <li class="empty" data-i18n="activity.empty">No transactions yet in this session.</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <div class="foot-in">
+      <p><strong>Copy Arena</strong> — <span data-i18n="foot.what">consensus-audited copy trading: traders stake, publish records, get judged, and get copied — with the split settled on-chain.</span></p>
+      <p><span data-i18n="foot.network">Network: Stable Studionet (Chain ID 61999)</span> · RPC <span class="mono">https://studio.genlayer.com/api</span></p>
+      <p><span data-i18n="foot.contract">Contract:</span> <a id="foot-contract" href="#" target="_blank" rel="noopener" class="mono">—</a></p>
+      <p><span data-i18n="foot.limits">GEN here is a nominal in-contract test ledger. PnL and splits come only from the contract — no external price feed, no real funds move.</span></p>
+      <p><a href="https://github.com/zsf11221/genlayer-copy-trading" target="_blank" rel="noopener" data-i18n="foot.source">Source code</a></p>
+      <p class="foot-note" id="foot-updated">—</p>
+    </div>
+  </footer>
+
+  <div id="provider-picker" class="provider-picker" hidden>
+    <div class="provider-card" role="dialog" aria-modal="true" aria-labelledby="picker-title">
+      <h2 id="picker-title" data-i18n="wallet.chooseProvider">Choose a wallet to connect</h2>
+      <div id="provider-list"></div>
+      <button id="picker-cancel" class="btn btn-ghost" type="button">✕</button>
+    </div>
+  </div>
+
+  <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+  <script type="module" src="./src/main.js"></script>
+</body>
+</html>
